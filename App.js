@@ -1,10 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Icon } from '@rneui/themed';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
+      <Icon
+        name="md-information-circle-outline"
+        type="ionicon"
+      />
       <Text>Open up App.js to start working on your app!</Text>
+      <Button
+        title={'Boton' + 'de' + 'Ayuda'}
+        onPress={() => console.log('Botón pulsado')}
+      />
       <StatusBar style="auto" />
     </View>
   );
