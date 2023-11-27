@@ -5,16 +5,55 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Icon
-        name="md-information-circle-outline"
-        type="ionicon"
-      />
-      <Text>Open up App.js to start working on your app!</Text>
-      <Button
-        title={'Boton' + 'de' + 'Ayuda'}
-        onPress={() => console.log('Botón pulsado')}
-      />
-      <StatusBar style="auto" />
+      <Text>Inicio</Text>
+      <Card>
+        <Card.Title>Bienvenido a ¡Videoclub!!</Card.Title>
+        <Card.Divider />
+        <Text style={{ marginBottom: 10 }}>
+          iVideoClub es una aplicacion desarrollada con Ionic.
+          Para acceder a la gestión del videoclub pulsa el siguiente botón.
+        </Text>
+        <Button
+          icon={
+            <Icon
+              name="videocam"
+              color="#ffffff"
+              iconStyle={{ marginRight: 10 }}
+            />
+          }
+          buttonStyle={{
+            borderRadius: 0,
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 0,
+          }}
+          title="Acceso a iVideoClub"
+        />
+      </Card>
+      <Card>
+        <Card.Title>Informacion sobre el autor</Card.Title>
+        <Card.Divider />
+        <Text style={{ marginBottom: 10 }}>
+          Aplicacion desarrollada por Antonio M.Pardo Ruiz
+        </Text>
+        <Button
+          icon={
+            <Icon
+              name="user"
+              color="#ffffff"
+              iconStyle={{ marginRight: 10 }}
+            />
+          }
+          buttonStyle={{
+            borderRadius: 0,
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 0,
+          }}
+          title="Consultar informacion"
+        />
+      </Card>
+
     </View>
   );
 }
