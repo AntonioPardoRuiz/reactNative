@@ -28,7 +28,7 @@ export default function Autor() {
           keyExtractor={(item, index) => item + index}
           renderItem={({ item }) => (
             <View style={styles.item}>
-              <Icon name={icon} color="#ffffff" iconStyle={{ marginRight: 10 }}/>
+              <Icon name={item.icon} color="#ffffff" size={20} iconStyle={{ marginRight: 10 }}/>
               <Text style={styles.title}>{item}</Text>
             </View>
           )}
@@ -36,9 +36,7 @@ export default function Autor() {
             <Text style={styles.header}>{title}</Text>
           )}
         />
-
       </Card>
-
     </View>
   );
 }
