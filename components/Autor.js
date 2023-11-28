@@ -12,7 +12,6 @@ import { AUTORES } from '../shared/autores';
 export default function Autor() {
   return (
     <View style={styles.container}>
-
       <Text>Autor</Text>
       <Card>
         <Card.Title>Informacion</Card.Title>
