@@ -1,11 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { Icon } from '@rneui/themed';
+import { Icon, Card, Header } from '@rneui/themed';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Inicio</Text>
+      <Text style={styles.titleText}> Inicio</Text>
       <Card>
         <Card.Title>Bienvenido a ¡Videoclub!!</Card.Title>
         <Card.Divider />
@@ -53,7 +53,6 @@ export default function App() {
           title="Consultar informacion"
         />
       </Card>
-
     </View>
   );
 }
@@ -64,5 +63,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  titleText: {
+    fontSize: 20,
+    fontWeight: 'bold',
   },
 });
