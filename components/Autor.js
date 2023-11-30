@@ -1,14 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import { Icon } from '@rneui/themed';
-import { StyleSheet, Text, View, Button, SectionList } from 'react-native';
-import { Text, Card, Button, Icon } from '@rneui/themed';
+import { StyleSheet,View} from 'react-native';
+import { Text, Card, Button, Icon} from '@rneui/themed';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { ListItem, Avatar } from '@rneui/themed';
 //Importamos los datos del proceso
 import { AUTORES } from '../shared/autores';
 
 //Informacion del proceso
-
 export default function Autor() {
   return (
     <View style={styles.container}>

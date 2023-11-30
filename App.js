@@ -1,71 +1,37 @@
+//Importamos las librerias de navegacion
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+//Importamos los componentes.
+import Autor from '../myApp/components/Autor';
+import Curriculum from '../myApp/components/Curriculum';
+import Home from '../myApp/components/Home';
+import Videoclub from '../myApp/components/Videoclub';
+//Otros componentes de RNEUI
 import { StatusBar } from 'expo-status-bar';
 import { Icon, Card, Header } from '@rneui/themed';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
+//Definimos el stack de navegacion. 
+
+const Stack = createStackNavigator();
+
+
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.titleText}> Inicio</Text>
-      <Card>
-        <Card.Title>Bienvenido a ¡Videoclub!!</Card.Title>
-        <Card.Divider />
-        <Text style={{ marginBottom: 10 }}>
-          iVideoClub es una aplicacion desarrollada con Ionic.
-          Para acceder a la gestión del videoclub pulsa el siguiente botón.
-        </Text>
-        <Button
-          icon={
-            <Icon
-              name="videocam"
-              color="#ffffff"
-              iconStyle={{ marginRight: 10 }}
-            />
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home"
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#1ef0f4'
           }
-          buttonStyle={{
-            borderRadius: 0,
-            marginLeft: 0,
-            marginRight: 0,
-            marginBottom: 0,
-          }}
-          title="Acceso a iVideoClub"
-        />
-      </Card>
-      <Card>
-        <Card.Title>Informacion sobre el autor</Card.Title>
-        <Card.Divider />
-        <Text style={{ marginBottom: 10 }}>
-          Aplicacion desarrollada por Antonio M.Pardo Ruiz
-        </Text>
-        <Button
-          icon={
-            <Icon
-              name="user"
-              color="#ffffff"
-              iconStyle={{ marginRight: 10 }}
-            />
-          }
-          buttonStyle={{
-            borderRadius: 0,
-            marginLeft: 0,
-            marginRight: 0,
-            marginBottom: 0,
-          }}
-          title="Consultar informacion"
-        />
-      </Card>
-    </View>
+        }}>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Autor" component={Autor} />
+        <Stack.Screen name="Curriculum" component={Curriculum} />
+        <Stack.Screen name="Videoclub" component={Videoclub} />
+      </Stack.Navigator>
+    </NavigationContainer>
+
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  titleText: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-});
