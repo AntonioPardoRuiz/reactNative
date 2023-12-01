@@ -1,42 +1,43 @@
 
 import React from "react";
-import { StatusBar } from 'expo-status-bar';
-import { Icon } from '@rneui/themed';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View,ScrollView} from 'react-native';
+import { Icon, Card, Header,ListItem,Avatar } from '@rneui/themed';
 //Importamos los datos del proceso
-import { MOVIES } from '../shared/peliculas';
 import { CONFIG } from '../shared/config';
 
 export default class Videoclub extends React.Component {
 
     //Definimos el constructor.
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            peliculas:[],
-            isLoading:false,
-            error:false
+            peliculas: [],
+            isLoading: false,
+            error: false
         };
-    }
-    //Utilizamos esta opcion para la carga de datos sin utilizar el constructor.
-    componentDidMount() {
+
         this.loadData();
     }
+    //Utilizamos esta opcion para la carga de datos sin utilizar el constructor.
+    //componentDidMount() {
+    //   
+   // }
 
     async loadData() {
         try {
-          let response = await fetch(CONFIG.baseUrl + "/catalog");
-          let data = await response.json();
-          console.log(data);
-          this.setState({ peliculas: data, isLoading: false });
+            this.setState({ isLoading: true });
+            let response = await fetch(CONFIG.baseUrl);
+            let data = await response.json();
+            console.log(data);
+            this.setState({ peliculas: data, isLoading: false });
         } catch (error) {
-          console.log(error);
-          this.setState({ error: error, isLoading: false });
+            console.log(error);
+            this.setState({ error: error, isLoading: false });
         }
-      }
+    }
 
-      render() {
+    render() {
         //Generamos las variables de estado que cambian a lo largo del ciclo de la pagina.
         const { peliculas, error, isLoading } = this.state;
 
@@ -44,42 +45,30 @@ export default class Videoclub extends React.Component {
             return <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }} ><Text>{error.message}</Text></View>;
 
         if (isLoading)
-                return <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }} ><Text>Loading...</Text></View>;
-            
-                return (
-                    <View style={styles.container}>
-                        <Text style={styles.titleText}>Videoclub</Text>
-                        <SafeAreaProvider>
-                        <SafeAreaView style={styles.container}>
-                            <ScrollView>
-                                {
-                                    peliculas.map((pelicula) => (
-                                    <Card>
-                                        <ListItem
-                                          bottomDivider
-                                          key={pelicula.id}
-                                          onPress={() => console.log('Element ' + pelicula.id + ' selected')}
-                                    >
-                                         <Avatar source={{ uri: pelicula.poster }} />
-                                           <ListItem.Content>
-                                             <Card.Title>{pelicula.title}</Card.Title>
-                                             <Card.Divider />
-                                             <Text style={styles.titleText}>Director: {pelicula.director}</Text>
-                                             <Text style={styles.titleText}>Año: {pelicula.year}</Text>
-                                          </ListItem.Content>
-                                        <ListItem.Chevron />
-                                    </ListItem>
-                                </Card>
-                            ))
-                        }
-                    </ScrollView>
-                </SafeAreaView>
-            </SafeAreaProvider>
-        </View >
-      );
-  }
-}
+            return <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }} ><Text>Loading...</Text></View>;
 
+        return (
+            <ScrollView>
+            {
+              peliculas.map((pelicula) => (
+                <ListItem
+                  bottomDivider
+                  key={pelicula.id}
+                  onPress={() => console.log('Element ' + pelicula.id + ' selected')}
+                >
+                  <Avatar source={{ uri:pelicula.poster }} />
+                  <ListItem.Content>
+                    <ListItem.Title>{pelicula.title + '-' + pelicula.year}</ListItem.Title>
+                  </ListItem.Content>
+                  <ListItem.Chevron />
+                </ListItem>
+              ))
+            }
+          </ScrollView>
+
+        );
+    }
+}
 const styles = StyleSheet.create({
     container: {
         flex: 1,
