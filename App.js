@@ -22,10 +22,10 @@ export default function App() {
       <Stack.Navigator initialRouteName="Home"
         screenOptions={{
           headerStyle: {
-            backgroundColor: '#1ef0f4'
+            backgroundColor: '#0D92F4'
           }
         }}>
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Inicio" component={Home} />
         <Stack.Screen name="Autor" component={Autor} />
         <Stack.Screen name="Curriculum" component={Curriculum} />
         <Stack.Screen name="Videoclub" component={Videoclub} />
@@ -34,4 +34,5 @@ export default function App() {
 
   );
 }
+
 

@@ -58,9 +58,10 @@ export default class Videoclub extends React.Component {
                 >
                   <Avatar source={{ uri:pelicula.poster }} />
                   <ListItem.Content>
-                    <ListItem.Title>{pelicula.title + '-' + pelicula.year}</ListItem.Title>
+                    <ListItem.Title>{pelicula.title}</ListItem.Title>
+                    <ListItem.Title>Director: {pelicula.director}</ListItem.Title>
+                    <ListItem.Title>Año: {pelicula.year}</ListItem.Title>
                   </ListItem.Content>
-                  <ListItem.Chevron />
                 </ListItem>
               ))
             }

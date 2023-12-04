@@ -5,7 +5,6 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 export default function Home(props) {
   return (
     <View style={styles.container}>
-      <Text style={styles.titleText}> Inicio</Text>
       <Card>
         <Card.Title>Bienvenido a ¡Videoclub!!</Card.Title>
         <Card.Divider />
